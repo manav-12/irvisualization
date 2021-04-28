@@ -1,0 +1,16 @@
+.idea/
+data/
+logs/
+backend/__pycache__/
+backend/core_ir/__pycache__/
+backend/expansion/__pycache__/
+backend/pylucene_retriever/__pycache__/
+backend/utils/__pycache__/
+backend/evaluation/__pycache__/
+frontend/__pycache__/
+venv/
+backend/evaluation/ExpansionEvaluator.py
+backend/evaluation/GenerateFeedback.py
+backend/results/
+backend/core_ir/BaseBM25.py
+generateDataScript.bat

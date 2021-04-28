@@ -1,0 +1,97 @@
+#scatterplotcontainer{
+    background-color: whitesmoke;
+    width: 98%;
+    margin-top: 10px;
+    margin-left:10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: flex;     
+}
+
+.scatterplot-svg{
+    transform: translate(0px, 0px);
+}
+
+.tooltip{
+    position: absolute;
+    background: white;
+}
+
+#scatterplotmenu{
+    display:flex;
+    flex-direction: row; 
+    height: 38px;
+    width: 100%;
+    background-color: #212121;
+    margin: 0px;    
+}
+
+.search-image{
+    width: 25px; 
+    height: 25px;
+    margin: 3px;    
+}
+
+.scatterbutton{ 
+    height: 25px;
+    width: 25px;
+    margin: 2px 2px 2px 2px; 
+    float:right;
+    visibility: hidden;
+}
+
+#searchdocument{
+    display:flex;
+    height: 28px; 
+    margin: auto;
+    margin-left:10px;
+    margin-right:10px;    
+    float: left;
+}
+
+#filterscatterplot{
+    display:flex;
+    height: 28px; 
+    margin: auto;
+    margin-left:10px; 
+    margin-right:10px;
+    float: left;
+  
+}
+
+#filterscatterplotinput{
+   width: 80px;  
+}
+
+#filterrelevantsbutton{
+    float: left;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#resetscatterplotbutton{
+    float: right;  
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.wordfonts {
+      background: none!important;
+      border: none;
+      padding: 8px!important;
+      /*optional*/
+      font-family: arial, sans-serif;
+      /*input has OS specific font-family*/
+      color: #069;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: x-large;
+}
+
+#resultDataTable{
+   overflow-y:scroll;
+}
+
+#wordGramTable{
+    overflow-y:scroll;
+}

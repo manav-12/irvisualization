@@ -1,0 +1,65 @@
+#termsrectcontainer::-webkit-scrollbar-track {
+  -webkit-box-shadow: 0 0 1px 1px #bbb, inset 0 0 7px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #eee;  
+}
+
+
+#termscontainer{
+    display: flex;
+    flex-direction: row; 
+    background-color: #212121;   
+}
+
+
+#menutermscontainer{
+    position: absolute;    
+}
+
+.loadingterm {
+  width: 25px;
+  height: 25px;
+  margin: 3px; 
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.term-image{
+    width: 25px; 
+    height: 25px;
+    margin: 3px;    
+}
+
+.termslist{
+  position: relative;
+  z-index: 1;
+}
+
+#addterm{
+    display:flex;   
+    margin: auto;
+    margin-left: 0px;
+    margin-right: 0px;   
+    width: 17%;
+    float: right;
+}
+
+.qeterm-section {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.qeterm-section label {
+  display: inline-block;
+  margin: 15px 0 5px 0;
+}
+.qeterm-section select {
+  width: 60%;
+  border: none;
+  overflow: hidden;
+}
+#get {
+  float: right;
+  margin: 25px auto 0;
+}

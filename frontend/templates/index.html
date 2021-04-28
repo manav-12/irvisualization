@@ -1,0 +1,150 @@
+<!doctype HTML>
+<html xmlns="">
+<head>
+    <meta charset='utf-8'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/main-terms.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main-scatterplot.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main-docview.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/chosen.css">
+    <script src="../static/js/chosen.jquery.min.js"></script>
+    <title>QE assisted VizIR</title>
+</head>
+<body>
+<div class="heading">
+    <h1>QE assisted VizIR</h1>
+    <input type="text" id="queryId" ,pattern="^\d{1,2}$" size="5" onchange="getQueryText()"/> &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type='text' id='queryText' value="" onChange="" size="100"/> &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type='button' onClick="searchResults()" value='Search'/>
+    <input type='button' onClick="resetAll()" value='Reset'/><br/><br/>
+  <!--  <p id="queryDescription"></p>-->
+<!--    <input type="checkbox" id="docFilter" name="docFilter" value="doc"  onclick="filterDocuments()">-->
+<!--    <label for="docFilter">Display only term-matched Document</label>-->
+</div>
+
+<!--<div id="expansionterms" class="heading">-->
+<!--</div>-->
+<div class="qeterm-section k-header">
+<select id="qeterm-selection" class="chosen-select" multiple data-placeholder="Select Expansion Terms...">
+</select>
+<!--<button class="k-button" id="select">Select All</button>-->
+<!--<button class="k-button" id="deselect">Deselect All</button>-->
+</div>
+
+<div id="contentcontainer">
+    <div id="middleviewcontainer">
+        <div id="spinner-box"></div>
+        <div id="scatterplotcontainer">
+
+        </div>
+    </div>
+    <div id="sidesectiondiv">
+        <div class="tab">
+            <button class="tablinks" onclick="toggletab(event, 'docViewContent')">Document View</button>
+            <button class="tablinks" onclick="toggletab(event, 'queryWordGram')">Query Term Occurrence</button>
+            <button class="tablinks" onclick="toggletab(event, 'rankedListContent')">Ranked List</button>
+        </div>
+
+        <div id="docViewContent" class="tabcontent">
+            <div id="docviewdiv">
+                <div id="docview" style="max-height: 700px;overflow-y: scroll;"></div>
+            </div>
+        </div>
+
+        <div id="queryWordGram" class="tabcontent">
+            <div id="wordgramdiv" style="max-height: 700px;overflow-y: scroll;" class="table-responsive">
+                <Table id='wordGramTable' class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Query Term Occurrence
+                            <button id="clearwordlist" onclick="plotWordGramDocuments('reset')" style="float: right;">Clear</button>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody id="gramBody">
+
+                        </tbody>
+                    </Table>
+            </div>
+        </div>
+
+        <div id="rankedListContent" class="tabcontent">
+            <div id="rankedlistdiv">
+                <div id="rankedlist" style="max-height: 700px;overflow-y: scroll;" class="table-responsive">
+                    <Table id='resultDataTable' class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Document ID</th>
+                            <th>Document Text</th>
+                        </tr>
+                        </thead>
+                        <tbody id="resultbody">
+
+                        </tbody>
+                    </Table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="documentDialog" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body edit-content">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+        <!-- Modal -->
+    <div class="modal fade" id="loader-modal" tabindex="-1" role="dialog" aria-labelledby="loadMeLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <div class="loader"></div>
+            <div clas="loader-txt">
+              <p>Fetching Data...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="menucontainer">
+    </div>
+</div>
+
+</body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.js"></script>
+<script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/main-terms.js"></script>
+<script src="../static/js/control.js"></script>
+<script src="../static/js/main-scatterplot.js"></script>
+<script src="../static/js/toggle.js"></script>
+
+<script>
+   $("#qeterm-selection").chosen({
+    width: "65%"
+  });
+    $(document).ready(function(){
+        LoadScatterplot();
+    });
+
+</script>
+</html>
