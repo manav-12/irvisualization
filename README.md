@@ -3,7 +3,7 @@
 Thesis: Hybrid Query Expansion Assisted Adaptive Visual Interface For Exploratory Search
 
 
-![Alt text](viz_system.png?raw=true "Adaptive Visual Interface")
+![Alt text](https://github.com/manav-12/irvisualization/blob/main/viz_system.PNG?raw=true "Adaptive Visual Interface")
 
 
 **NOTE:** _README on how to run the code and code refactoring: In-progress_
