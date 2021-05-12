@@ -1,6 +1,6 @@
 # irvisualization
 
-Thesis: Hybrid Query Expansion Assisted Adaptive Visual Interface For Exploratory Search
+Thesis: Hybrid Query Expansion Assisted Adaptive Visual Interface For Exploratory Search<br/>
 Thesis URL: https://dalspace.library.dal.ca/handle/10222/80447
 
 ![Alt text](https://github.com/manav-12/irvisualization/blob/main/viz_system.PNG?raw=true "Adaptive Visual Interface")
